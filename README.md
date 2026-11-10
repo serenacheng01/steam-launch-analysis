@@ -18,7 +18,7 @@ What draws me to games is how storytelling, user experience, visuals and psychol
 
 ## The problem: more games, the same amount of attention
 
-![Steam launches against the share of games reaching 50 reviews, 2013 to 2024](images/market_growth.png)
+![Steam launches against the share of games reaching 50 reviews, 2013 to 2024](image/market_growth.png)
 
 Steam launches grew from 468 in 2013 to 20,033 in 2024, about 43 times more. But the number of games reaching 50 reviews stayed at roughly 2,400 to 3,200 a year from 2016 onwards. In 2024 only 16% of launches, about one in six, reached 50 reviews. For a new game, being noticed is the main risk, so every question below is about discoverability.
 
@@ -33,17 +33,17 @@ Steam launches grew from 468 in 2013 to 20,033 in 2024, about 43 times more. But
 
 **Data model.** Genres and tags arrive as comma-separated text in a single cell, which cannot be counted or compared. I split them into their own tables, linked to the games table on `app_id`:
 
-![Entity relationship diagram of games, game_genres and game_tags](images/diagram.png)
+![Entity relationship diagram of games, game_genres and game_tags](image/diagram.png)
 
 ## What I found
 
 **Positioning matters more than genre.** Story Rich games beat the all-games average on both measures: 83.0% liked and 32.6% noticed, against 78.5% and 23.5%. Games in the Adventure genre, by contrast, are noticed no more often than average (23.7%), and the genre is crowded with 13,191 games. Visual Novel is the best liked of the tags I compared (85.3%) but the least noticed (20.1%).
 
-![Story-led tags against all games on liking and attention](images/positioning.png)
+![Story-led tags against all games on liking and attention](image/positioning.png)
 
 **Price: the middle balances liking and attention.** Among Story Rich games, $10 to $19.99 is among the best liked (85.1%) and noticed more often than cheaper games (37.4%, against 28.6% under $5). Under $5 is the most crowded band and the weakest on attention. The $20+ bands are noticed more, but they are small groups (192 and 74 games) that are likely dominated by bigger productions.
 
-![Story Rich games by price band](images/price.png)
+![Story Rich games by price band](image/price.png)
 
 **Timing is a smaller lever.** September had the highest share of games passing 1,000 reviews, both across all games released 2018 to 2024 (27.4%) and among Story Rich games (38.8%). July was among the weakest in both. How much players like a game barely changes by month, so timing affects visibility, not reception.
 
@@ -87,7 +87,7 @@ Steam launches grew from 468 in 2013 to 20,033 in 2024, about 43 times more. But
 | `02_build_tables.sql` | The `games`, `game_genres` and `game_tags` tables |
 | `03_queries.sql` | The analysis queries, each with its finding as a comment |
 | `business_proposal.pdf` | The one-page launch recommendation |
-| `images/` | The ER diagram and charts |
+| `image/` | The ER diagram and charts |
 
 **SQL used:** joins, aggregation with `GROUP BY` and `HAVING`, `CASE`, CTEs, window functions (`RANK`, running totals with `SUM() OVER`), `UNION ALL`, and `JSON_TABLE` to split text lists into rows.
 
